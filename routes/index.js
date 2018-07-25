@@ -4,6 +4,7 @@ var passport = require("passport");
 var User = require("../models/user");
 var Campground = require("../models/campground");
 
+
 router.get("/", function(req, res){
     res.render("landing");
 });
@@ -82,5 +83,7 @@ router.get("/users/:id", function(req, res){
         }
     });
 });
+
+
 
 module.exports = router;
