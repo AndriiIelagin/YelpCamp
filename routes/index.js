@@ -16,6 +16,11 @@ router.get("/", function(req, res){
 // AUTH ROUTES
 // =======================
 
+//ROOT ROUTE
+router.get("/", function(req, res){
+     res.render("landing");
+ });
+
 // REGISTRATION
 // Show register form
 router.get("/register", function(req, res){
@@ -35,13 +40,14 @@ router.post("/register", function(req, res){
     if(req.body.adminCode === "55555"){
         newUser.isAdmin = true;
     }
+    
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
             return res.render("register", {error: err.message});
         }
             passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to YelpCamp, " + user.username);
+            req.flash("success", "Welcome to YelpCamp, " + req.body.username);
             res.redirect("/campgrounds");
         });
     });
@@ -56,7 +62,9 @@ router.get("/login", function(req, res){
 // Handling login logic
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/campgrounds", 
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    failureFlash: true,
+    successFlash: 'Welcome to YelpCamp!'
 }), function(req, res){
     
 });
