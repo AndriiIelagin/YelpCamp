@@ -11,7 +11,10 @@ var express        = require("express"),
     seedDB         = require("./seeds"),
     methodOverride = require("method-override");
     
-    require('dotenv').config();
+    // configure dotenv
+    require('dotenv').load();
+    
+    // require('dotenv').config();
     
 // Requiring routes
 var commentRoutes     = require("./routes/comments"),

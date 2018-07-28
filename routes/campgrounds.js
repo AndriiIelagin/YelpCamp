@@ -76,12 +76,13 @@ router.post("/", upload.single('image'), middleware.isLoggedIn, function(req, re
         var name = req.body.name;
         var price = req.body.price;
         var image = result.secure_url;
+        var imageId = result.public_id;
         var desc =  req.body.description;
         var author = {
             id: req.user._id,
             username: req.user.username
         };
-        var newCampground = {name: name, price: price, image: image, description: desc, author: author};
+        var newCampground = {name: name, price: price, image: image, imageId: imageId, description: desc, author: author};
         Campground.create(newCampground, function(err, campground){
             if(err){
                 req.flash("error", "Campground not found");
@@ -132,10 +133,10 @@ router.put("/:id", upload.single('image'), middleware.checkCampgroundOwnership, 
                     res.redirect("back");
                 }
             }
-            campground.name = req.body.campground.name;
-            campground.price = req.body.campground.price;
+            campground.name = req.body.name;
+            campground.price = req.body.price;
             campground.save();
-            campground.description = req.body.campground.description;
+            campground.description = req.body.description;
             req.flash("success", "Updated successfully");
             res.redirect("/campgrounds/" + campground._id);
         }
