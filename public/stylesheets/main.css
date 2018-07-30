@@ -6,3 +6,11 @@
     font-weight: normal;
     font-size: 1rem;
 }
+
+.campground_form {
+    width: 350px;
+}
+
+.card-image{
+    height: 200px;
+}

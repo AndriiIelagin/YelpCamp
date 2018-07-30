@@ -8,13 +8,11 @@
             <p>
                 <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
             </p>
-            <p>
-                <form class="w-25 mx-auto" action="/campgrounds" method="GET">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="search" placeholder="Campground search">
-                    </div>
-                </form>
-            </p>
+            <form class="campground_form mx-auto" action="/campgrounds" method="GET">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="search" placeholder="Campground search">
+                </div>
+            </form>
         </div>
     </header>
     
@@ -36,9 +34,9 @@
 
 <div class="row">
     <% campgrounds.forEach(function(campground){ %>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 mb-5">
             <div class="card text-center">
-                <img class="card-img-top" src=" <%= campground.image %> ">
+                <img class="card-img-top card-image mb-3" src=" <%= campground.image %> ">
                 <div class="card-body">
                     <div class="card-title">
                         <h4> <%= campground.name %> </h4>
