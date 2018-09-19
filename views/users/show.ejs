@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
-<div class="row">
-   <div class="col-md-4">
+<div class="row ml-5">
+   <div class="col-md-8">
       <div class="card">
           <img class="card-img-top" src="<%= user.avatar %>" alt="Card image cap">
           <div class="card-body">
@@ -12,12 +12,12 @@
           Donec euismod lacus nec tellus luctus, a tempus quam dapibus. Vestibulum quis sem varius, pretium eros sed, luctus neque.
           Proin pulvinar in dui ac tincidunt. Sed faucibus nisl eget finibus accumsan.
           Proin in volutpat libero. Nunc urna nunc, pulvinar nec ante ac, pulvinar semper odio.</p>
-          <a href="#" class="btn btn-primary">Back</a>
+          <a href="/campgrounds/" class="btn btn-primary">Back</a>
           </div>
       </div>
    </div>
    
-   <div class="col-md-8">
+   <div class="col-md-4">
       <h3> <%= user.username %>'s campgrounds: </h3>
       <ul>
          <% campgrounds.forEach(function(campground){  %>
